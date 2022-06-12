@@ -111,10 +111,11 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `AsignarTicket`(IN pIdUsuario int)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AsignarTicket`(IN pIdTicket VARCHAR(500), IN pIdUsuario int)
 BEGIN
 UPDATE Tickets
-SET IdUsuario = pIdUsuario;
+SET IdUsuario = pIdUsuario
+WHERE Id = pIdTicket;
 SELECT pIdUsuario;
 END ;;
 DELIMITER ;
@@ -179,9 +180,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `Tickets_TraerLiberados`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Tickets_TraerLiberados`(IN pIdEvento INT)
 BEGIN
-SELECT * FROM Tickets WHERE IdUsuario IS NULL;
+SELECT * FROM Tickets WHERE IdUsuario IS NULL AND IdEvento = pIdEvento;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -264,4 +265,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-12 17:31:21
+-- Dump completed on 2022-06-12 20:47:34
