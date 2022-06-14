@@ -1,5 +1,5 @@
 import Usuario from "../model/Usuario.js";
-import makeQuery from "../utiles/makeQuery.js";
+import makeQuery from "../makeQuery.js";
 
 export const insertar = async(params) => { 
     try{
@@ -8,7 +8,7 @@ export const insertar = async(params) => {
         if(index === values.length-1) return total+='?'
         return total += '?,';
     },'')
-    const query = `CALL Venta_Tickets.Usuarios_insertar(${cantParams}]);`;
+    const query = `CALL Venta_Tickets.Usuarios_insertar(${cantParams});`;
     const result = await makeQuery(query,values);
     var resp = {id: result[0].id, message: "fue exitosa la operacion"};
     }

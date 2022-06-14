@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { insertar,traerTickets,login } from "../dao/UsuariosDao";
+import { insertar,traerTickets,login } from "../dao/UsuariosDao.js";
 const router = Router();
 
 //CREA UN USUARIO

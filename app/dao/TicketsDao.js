@@ -1,5 +1,5 @@
-import Ticket from "../model/Ticket";
-import makeQuery from "../utiles/makeQuery.js";
+import Ticket from "../model/Ticket.js";
+import makeQuery from "../makeQuery.js";
 
 export const traerTicketsDisponibles = async(params) => {
     const values = Object.values(params);
@@ -31,4 +31,5 @@ export const AsignarTicket = async (params) => {
     }catch(error){
         resp = {id: -1, message : error.message};
     }
+    return resp;
 }

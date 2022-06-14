@@ -1,5 +1,5 @@
 import Evento from "../model/Evento.js";
-import makeQuery from "../utiles/makeQuery.js";
+import makeQuery from "../makeQuery.js";
 
 export const traerEventos = async () => {
     const query = 'CALL Venta_Tickets.Eventos_obtenerTodos();';

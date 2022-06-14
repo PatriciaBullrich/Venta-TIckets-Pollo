@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { traerTicketsDisponibles,AsignarTicket } from "../dao/TicketsDao";
+import { traerTicketsDisponibles,AsignarTicket } from "../dao/TicketsDao.js";
 const router = Router();
 
 // ESPERA PRIMERO EL ID DEL TICKET Y DESPUES EL ID USUARIO

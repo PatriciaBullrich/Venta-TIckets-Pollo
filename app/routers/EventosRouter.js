@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { traerEventos } from './dao/EventoDao';
+import { traerEventos } from '../dao/EventoDao.js';
 const router = Router();
 
 
